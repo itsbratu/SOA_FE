@@ -1,0 +1,29 @@
+service: shop-service
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+functions:
+  createShop:
+    handler: lambda/createShop.handler
+    events:
+      - http:
+          path: createShop
+          method: post
+
+resources:
+  Resources:
+    ShopsBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:service}-shops-bucket
+    ShopLogsTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: shop-logs-topic
+
+environment:
+  SHOPS_BUCKET: ${self:service}-shops-bucket
+  SHOP_LOGS_TOPIC: !Ref ShopLogsTopic

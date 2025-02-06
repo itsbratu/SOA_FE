@@ -1,0 +1,199 @@
+{
+  "/Users/itsbratu/Documents/SOA_BE 2/api": {
+    "versionSfCore": null,
+    "versionFramework": "4.4.7",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeResolverProviders": {
+      "default-aws-credential-resolver": "<REDACTED>",
+      "self": {
+        "instance": {
+          "credentials": "<REDACTED>",
+          "serviceConfigFile": {
+            "service": "shop-service",
+            "provider": {
+              "name": "aws",
+              "runtime": "nodejs18.x",
+              "region": "us-east-1",
+              "stage": "dev",
+              "versionFunctions": true,
+              "environment": {
+                "IS_LOCAL": "true"
+              }
+            },
+            "functions": {
+              "createShop": {
+                "handler": "lambda/createShop.handler",
+                "events": [
+                  {
+                    "http": {
+                      "path": "createShop",
+                      "method": "post"
+                    }
+                  }
+                ],
+                "name": "shop-service-dev-createShop"
+              }
+            },
+            "resources": {
+              "Resources": {
+                "ShopsBucket": {
+                  "Type": "AWS::S3::Bucket",
+                  "Properties": {
+                    "BucketName": "shop-service-shops-bucket"
+                  }
+                },
+                "ShopLogsTopic": {
+                  "Type": "AWS::SNS::Topic",
+                  "Properties": {
+                    "TopicName": "shop-logs-topic"
+                  }
+                }
+              }
+            },
+            "environment": {
+              "SHOPS_BUCKET": "shop-service-shops-bucket",
+              "SHOP_LOGS_TOPIC": {
+                "Ref": "ShopLogsTopic"
+              }
+            }
+          },
+          "configFileDirPath": "/Users/itsbratu/Documents/SOA_BE 2/api",
+          "config": {
+            "type": "self"
+          },
+          "options": {
+            "function": "createShop",
+            "path": "shop.json"
+          },
+          "stage": "dev",
+          "dashboard": null,
+          "logger": {
+            "namespace": "s:core:resolver:self",
+            "prefix": null,
+            "prefixColor": null
+          },
+          "_credentialsPromise": "<REDACTED>"
+        },
+        "resolvers": {}
+      }
+    },
+    "composeServiceName": null,
+    "servicePath": "/Users/itsbratu/Documents/SOA_BE 2/api",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "shop-service",
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs18.x",
+        "region": "us-east-1",
+        "stage": "dev",
+        "versionFunctions": true,
+        "environment": {
+          "IS_LOCAL": "true"
+        }
+      },
+      "functions": {
+        "createShop": {
+          "handler": "lambda/createShop.handler",
+          "events": [
+            {
+              "http": {
+                "path": "createShop",
+                "method": "post"
+              }
+            }
+          ],
+          "name": "shop-service-dev-createShop"
+        }
+      },
+      "resources": {
+        "Resources": {
+          "ShopsBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+              "BucketName": "shop-service-shops-bucket"
+            }
+          },
+          "ShopLogsTopic": {
+            "Type": "AWS::SNS::Topic",
+            "Properties": {
+              "TopicName": "shop-logs-topic"
+            }
+          }
+        }
+      },
+      "environment": {
+        "SHOPS_BUCKET": "shop-service-shops-bucket",
+        "SHOP_LOGS_TOPIC": {
+          "Ref": "ShopLogsTopic"
+        }
+      }
+    },
+    "serviceRawFile": "service: shop-service\n\nprovider:\n  name: aws\n  runtime: nodejs18.x\n  region: us-east-1\n\nfunctions:\n  createShop:\n    handler: lambda/createShop.handler\n    events:\n      - http:\n          path: createShop\n          method: post\n\nresources:\n  Resources:\n    ShopsBucket:\n      Type: AWS::S3::Bucket\n      Properties:\n        BucketName: ${self:service}-shops-bucket\n    ShopLogsTopic:\n      Type: AWS::SNS::Topic\n      Properties:\n        TopicName: shop-logs-topic\n\nenvironment:\n  SHOPS_BUCKET: ${self:service}-shops-bucket\n  SHOP_LOGS_TOPIC: !Ref ShopLogsTopic\n",
+    "command": [
+      "invoke",
+      "local"
+    ],
+    "options": {
+      "function": "createShop",
+      "path": "shop.json"
+    },
+    "error": {
+      "message": "Exception encountered when loading /Users/itsbratu/Documents/SOA_BE 2/api/lambda/createShop",
+      "stack": "ServerlessError2: Exception encountered when loading /Users/itsbratu/Documents/SOA_BE 2/api/lambda/createShop\n    at AwsInvokeLocal.invokeLocalNodeJs (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:947:5865)\n    at async PluginManager.runHooks (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:953:9311)\n    at async PluginManager.invoke (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:953:10082)\n    at async PluginManager.run (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:953:10813)\n    at async Serverless.run (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:960:10612)\n    at async runFramework (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:983:2696)\n    at async route (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:1011:14772)\n    at async Object.run2 [as run] (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:1011:15173)\n    at async run3 (file:///Users/itsbratu/.serverless/releases/4.4.7/package/dist/sf-core.js:1011:16435)",
+      "code": "INVOKE_LOCAL_LAMBDA_INITIALIZATION_FAILED"
+    },
+    "params": {},
+    "machineId": "d5ae2ae5fc345701e00f57299000017a",
+    "stage": "dev",
+    "licenseKeyUsed": true,
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "d8b153fe-e5bf-4ae0-9c94-390359427176",
+    "orgName": "ionuu",
+    "userId": null,
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "subscription": null,
+    "userEmail": null,
+    "serviceProviderAwsRegion": "us-east-1",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "677276110986",
+    "projectType": "traditional",
+    "versionSf": "4.4.7",
+    "serviceProviderAwsCfStackName": "shop-service-dev",
+    "serviceUniqueId": "arn:aws:cloudformation:us-east-1:677276110986:stack/shop-service-dev/e998b8f0-a051-11ef-8a52-1294ea0e8403",
+    "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:677276110986:stack/shop-service-dev/e998b8f0-a051-11ef-8a52-1294ea0e8403",
+    "serviceProviderAwsCfStackCreated": "2024-11-11T17:25:14.506Z",
+    "serviceProviderAwsCfStackUpdated": "2024-11-11T17:36:43.547Z",
+    "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
+    "serviceProviderAwsCfStackOutputs": [
+      {
+        "OutputKey": "CreateShopLambdaFunctionQualifiedArn",
+        "OutputValue": "arn:aws:lambda:us-east-1:677276110986:function:shop-service-dev-createShop:4",
+        "Description": "Current Lambda function version",
+        "ExportName": "sls-shop-service-dev-CreateShopLambdaFunctionQualifiedArn"
+      },
+      {
+        "OutputKey": "ServiceEndpoint",
+        "OutputValue": "https://qs88pjtank.execute-api.us-east-1.amazonaws.com/dev",
+        "Description": "URL of the service endpoint",
+        "ExportName": "sls-shop-service-dev-ServiceEndpoint"
+      },
+      {
+        "OutputKey": "ServerlessDeploymentBucketName",
+        "OutputValue": "serverless-framework-deployments-us-east-1-5f491d0b-d074",
+        "ExportName": "sls-shop-service-dev-ServerlessDeploymentBucketName"
+      }
+    ]
+  }
+}

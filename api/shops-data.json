@@ -1,0 +1,58 @@
+[
+  {
+    "id": "25bc2640-fafa-23c7-bb4c-31c4e96a298a",
+    "name": "The Green Grove",
+    "location": "Central Park, New York, NY",
+    "income": 1612,
+    "openedAt": "2021-07-11T00:00:00.000Z"
+  },
+  {
+    "id": "6697c06a-3ff5-4344-967b-f97b7e98d9bc",
+    "name": "Urban Essence Boutique",
+    "income": 25332,
+    "openedAt": "2024-11-09T16:23:28.481Z",
+    "location": "5th Avenue, New York, NY"
+  },
+  {
+    "id": "0579ddc2-11ac-4765-9d20-319632bd99c3",
+    "name": "The Crafty Corner",
+    "income": 351,
+    "openedAt": "2024-07-05T00:00:00.000Z",
+    "location": "Old Town Square, Boulder, CO"
+  },
+  {
+    "id": "8e6d8866-9902-4f8c-b8e4-3aa07681a4e0",
+    "name": "Vintage Vibe",
+    "income": 9082,
+    "openedAt": "2024-08-10T00:00:00.000Z",
+    "location": "Market Street, San Francisco, CA"
+  },
+  {
+    "id": "336d8866-9902-4f8c-b8e4-3aa07681a4e0",
+    "name": "The Coffee Nook",
+    "income": -15253,
+    "openedAt": "2024-09-07T00:00:00.000Z",
+    "location": "Main Street, Portland, OR"
+  },
+  {
+    "id": "33628866-9902-4f8c-b8e4-3aa07681a4e0",
+    "name": "Echo & Ember",
+    "income": 1627,
+    "openedAt": "2023-09-15T00:00:00.000Z",
+    "location": "Riverwalk, Chicago, IL"
+  },
+  {
+    "id": "33628866-9902-4f8c-b8e4-bbb07681a4e0",
+    "name": "Fireside Finds",
+    "income": -2285,
+    "openedAt": "2024-11-02T00:00:00.000Z",
+    "location": "Maple Lane, Asheville, NC"
+  },
+  {
+    "id": "bbb77ec6-d711-46df-8e40-a506b704b893",
+    "name": "The Artisan Emporium",
+    "income": 998754,
+    "openedAt": "2024-09-03T00:00:00.000Z",
+    "location": "Artisan District, Santa Fe, NM"
+  }
+]
